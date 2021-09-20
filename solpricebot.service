@@ -1,0 +1,10 @@
+[Unit]
+Description=solpricebot
+
+[Service]
+Environment=SYSTEMD_LOG_LEVEL=debug 
+Type=simple
+Restart=always
+RestartSec=5s
+WorkingDirectory=/home/projects/solpricebot
+ExecStart=/home/projects/solpricebot/solpricebot
