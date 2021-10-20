@@ -7,7 +7,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func init() {
+	updateData()
+}
+
 func TestGetSolMarketData(t *testing.T) {
+
 	coinData, err := GetSolMarketData("usd")
 	require.NoError(t, err)
 

@@ -44,6 +44,7 @@ func startDataUpdater() {
 	go func() {
 		for range time.Tick(time.Second * 21) {
 			updateData()
+			Changed <- struct{}{}
 		}
 	}()
 }
@@ -67,8 +68,6 @@ func updateData() {
 		AllTimeHighDate:     coinData.MarketData.ATHDate["usd"],
 	}
 	mutex.Unlock()
-
-	Changed <- struct{}{}
 }
 
 // GetSolMarketData retrieves all the necessary market data for Solana
